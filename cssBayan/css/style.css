@@ -1,0 +1,189 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #405191;
+  color: white;
+}
+
+
+/*Accordion*/
+.accordion {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 0.625em;
+}
+.accordion-name {
+  font-size: 1.8em;
+}
+.accordion input {
+  visibility: hidden;
+  display: block;
+  height: 0;
+  margin: 0;
+}
+
+.accordion label {
+  cursor: pointer;
+  border: 0.05em solid rgb(255 255 255 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.625em;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.accordion .accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #88b8ff;
+  font-weight: bold;
+}
+
+.accordion .arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z' /%3E%3C/svg%3E");
+  height: 1.5em;
+  width: 1.5em;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion .accordion-item-content {
+  margin: 0 auto;
+  height: 0;
+  /* color: rgba(0, 0, 0, 0); */
+  padding: 0 0.625em;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.accordion img {
+  width: 100%;
+  height: 100%;
+  /* margin-top: 0.625em; */
+  /* border:2px solid white; */
+  transition: all 0.5s ease-in-out;
+}
+
+/*Checked*/
+.accordion input:checked+label {
+  padding-bottom: 1.25em;
+  background: linear-gradient(rgb(0 48 255 / 0%) 0%, rgb(61 65 102 / 38%) 100%);
+  filter: drop-shadow(1px 1px 200px #747ef1);
+}
+
+.accordion input:checked~label .accordion-item-content {
+  height: 10em;
+  color: #ffffff;
+  padding: 0.2em 0.625em;
+  transition: 0.5s;
+}
+
+.accordion input:checked+label .arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+  transform: rotate(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion input:checked+label .accordion-header {
+  color: #ffffff;
+}
+
+
+@media (min-width: 320px) {
+  .accordion {
+    width: 100%;
+    font-size: 0.8em;
+  }
+  .accordion-name {
+    font-size: 1.8em;
+  }
+}
+
+
+@media (min-width: 820px) {
+  .accordion {
+    width: 70%;
+    font-size: 1em;
+  }
+  .accordion-name {
+    font-size: 1.9em;
+  }
+}
+
+@media (min-width: 1920px) {
+  .accordion {
+    width: 50%;
+    font-size: 1.8em;
+  }
+  .accordion-name {
+    font-size: 2em;
+  }
+}
+
+/* 9. Cursor over the memes (hover) effect only exists for devices that can support hover. */
+
+@media (hover: hover) and (pointer: fine) {
+  @media (min-width: 1920px) {
+
+    /* Hover Effects */
+    .accordion:hover .accordion-item:hover .accordion-item-content {
+      height: 10em;
+    }
+
+    .accordion-item-content,
+    .accordion:hover .accordion-item-content {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s;
+    }
+
+    .accordion:hover .accordion-item:hover .arrow {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+      transition: all 0.5s ease-in-out;
+      transform: rotate(-180deg);
+    }
+
+    .accordion .arrow {
+      opacity: 0;
+    }
+
+    .accordion:hover .arrow {
+      opacity: 1;
+    }
+
+    .accordion:hover .accordion-header {
+      color: #ffffff;
+    }
+
+    .accordion:hover .accordion-item:hover input:active+label .arrow {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388b8ff' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+      transition: all 0.2s ease-in-out;
+    }
+
+    .accordion:hover .accordion-item:hover input:active+label .accordion-header {
+      color: #88b8ff;
+    }
+
+    .accordion:hover .accordion-item:hover input:active+label .accordion-item-content {
+      opacity: 0.5;
+    }
+
+    .accordion:hover .accordion-item:hover input:checked:active+label .arrow {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388b8ff' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+    }
+
+    .accordion:hover .accordion-item:hover input:checked:active+label .accordion-header {
+      color:  #88b8ff;
+    }
+
+    .accordion:hover .accordion-item:hover input:checked:active+label .accordion-item-content {
+      opacity: 1;
+    }
+
+  }
+
+}
