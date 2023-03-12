@@ -55,6 +55,7 @@ body {
 }
 
 .accordion .accordion-item-content {
+  display: inline-block;
   margin: 0 auto;
   height: 0;
   padding: 0 0.625em;
@@ -68,6 +69,7 @@ body {
 .accordion img {
   width: 100%;
   height: 100%;
+  filter: grayscale(1);
   transition: all 0.5s ease-in-out;
 }
 
@@ -113,8 +115,19 @@ body {
   }
 
   .accordion:hover .accordion-item:hover input:active+label .accordion-item-content {
-    filter: drop-shadow(0.625em 0.625em 3.125em #97a0ff);
+    filter: drop-shadow(0.625em 0.625em 3.125em #97d0ff);
   }
+  .accordion:hover .accordion-item:hover input:active+label img {
+    filter: grayscale(0);
+  }
+
+  .accordion:hover .accordion-item:hover input:active+label {
+    background: #ffffff0c;
+  }
+
+ 
+
+
 
 }
 
@@ -132,6 +145,10 @@ body {
   padding-bottom: 1.25em;
   background: linear-gradient(rgb(0 48 255 / 0%) 0%, rgb(61 65 102 / 38%) 100%);
   filter: drop-shadow(0.0625em 0.0625em 12.5em #747ef1);
+}
+
+.accordion input:checked+label img {
+  filter: grayscale(0);
 }
 
 .accordion input:checked~label .accordion-item-content {
