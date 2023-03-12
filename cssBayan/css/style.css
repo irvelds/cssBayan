@@ -51,7 +51,7 @@ body {
   height: 1.5em;
   width: 1.5em;
   opacity: 1;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s;
 }
 
 .accordion .accordion-item-content {
@@ -60,14 +60,10 @@ body {
   padding: 0 0.625em;
   box-sizing: border-box;
   text-align: center;
-  transition: 0.5s;
+  overflow: hidden;
+  transition: 0.8s;
 }
 
-.accordion-item-content {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.5s;
-}
 
 .accordion img {
   width: 100%;
@@ -75,18 +71,74 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+
+/* 9. Cursor over the memes (hover) effect only exists for devices that can support hover. */
+
+@media (hover: hover) {
+
+  /* Hover Effects */
+  .accordion label {
+    cursor: pointer;
+  }
+
+  .accordion:hover .accordion-item:hover .accordion-item-content {
+    height: 10em;
+  }
+
+  .accordion:hover .accordion-item:hover .arrow {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-180deg);
+  }
+
+  .accordion .arrow {
+    opacity: 0;
+  }
+
+  .accordion:hover .arrow {
+    opacity: 1;
+  }
+
+  .accordion:hover .accordion-header {
+    color: #ffffff;
+  }
+
+  /* Active desktop */
+  .accordion:hover .accordion-item:hover input:active+label .arrow {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='yellow' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+  }
+
+  .accordion:hover .accordion-item:hover input:active+label .accordion-header {
+    color: yellow;
+  }
+
+  .accordion:hover .accordion-item:hover input:active+label .accordion-item-content {
+    filter: drop-shadow(0.625em 0.625em 3.125em #97a0ff);
+  }
+
+}
+
+/* Active mobile */
+.accordion .accordion-item input:active+label .accordion-header {
+  color: yellow;
+}
+
+.accordion .accordion-item input:active+label .arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='yellow' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
+}
+
 /*Checked*/
 .accordion input:checked+label {
   padding-bottom: 1.25em;
   background: linear-gradient(rgb(0 48 255 / 0%) 0%, rgb(61 65 102 / 38%) 100%);
-  filter: drop-shadow(1px 1px 200px #747ef1);
+  filter: drop-shadow(0.0625em 0.0625em 12.5em #747ef1);
 }
 
 .accordion input:checked~label .accordion-item-content {
   height: 10em;
   color: #ffffff;
   padding: 0.2em 0.625em;
-  transition: 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 
 .accordion input:checked+label .arrow {
@@ -141,66 +193,4 @@ body {
   .accordion-name {
     font-size: 2em;
   }
-}
-
-
-
-/* 9. Cursor over the memes (hover) effect only exists for devices that can support hover. */
-
-@media (hover: hover) {
-
-  /* Hover Effects */
-  .accordion label {
-    cursor: pointer;
-  }
-
-  .accordion:hover .accordion-item:hover .accordion-item-content {
-    height: 10em;
-  }
-
-  .accordion:hover .accordion-item:hover .arrow {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
-    transition: all 0.5s ease-in-out;
-    transform: rotate(-180deg);
-  }
-
-  .accordion .arrow {
-    opacity: 0;
-  }
-
-  .accordion:hover .arrow {
-    opacity: 1;
-  }
-
-  .accordion:hover .accordion-header {
-    color: #ffffff;
-  }
-
-  .accordion:hover .accordion-item:hover input:active+label .arrow {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388b8ff' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
-    transition: all 0.2s ease-in-out;
-  }
-
-  .accordion:hover .accordion-item:hover input:active+label .accordion-header {
-    color: #88b8ff;
-  }
-
-  .accordion:hover .accordion-item:hover input:active+label .accordion-item-content {
-    opacity: 0.5;
-    /* background: linear-gradient(rgb(0 48 255 / 0%) 0%, rgb(61 65 102 / 38%) 100%); */
-    filter: drop-shadow(10px 10px 50px #97a0ff);
-  }
-
-  .accordion:hover .accordion-item:hover input:checked:active+label .arrow {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7' /%3E%3C/svg%3E");
-  }
-
-  .accordion:hover .accordion-item:hover input:checked:active+label .accordion-header {
-    color: #ffffff;
-  }
-
-  .accordion:hover .accordion-item:hover input:checked:active+label .accordion-item-content {
-    opacity: 1;
-  }
-
 }
